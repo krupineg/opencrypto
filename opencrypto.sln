@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "md5csharp", "md5csharp\md5csharp.csproj", "{DE3FD76D-57C9-428E-A654-266AE0BC29A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "md5.Tests", "md5.Tests\md5.Tests.csproj", "{CFCF66BF-2A3F-4422-9B07-5004AC362AF6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "csharp", "csharp", "{8A13F218-B7BA-4EC0-91CF-58D1FE39FD63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{5994C05C-B7AD-4739-A441-1C974747C1C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7E0BBCA8-BA78-469F-88F8-223625C954C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE3FD76D-57C9-428E-A654-266AE0BC29A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE3FD76D-57C9-428E-A654-266AE0BC29A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE3FD76D-57C9-428E-A654-266AE0BC29A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE3FD76D-57C9-428E-A654-266AE0BC29A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFCF66BF-2A3F-4422-9B07-5004AC362AF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFCF66BF-2A3F-4422-9B07-5004AC362AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFCF66BF-2A3F-4422-9B07-5004AC362AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFCF66BF-2A3F-4422-9B07-5004AC362AF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DE3FD76D-57C9-428E-A654-266AE0BC29A3} = {5994C05C-B7AD-4739-A441-1C974747C1C0}
+		{CFCF66BF-2A3F-4422-9B07-5004AC362AF6} = {7E0BBCA8-BA78-469F-88F8-223625C954C2}
+		{5994C05C-B7AD-4739-A441-1C974747C1C0} = {8A13F218-B7BA-4EC0-91CF-58D1FE39FD63}
+		{7E0BBCA8-BA78-469F-88F8-223625C954C2} = {8A13F218-B7BA-4EC0-91CF-58D1FE39FD63}
+	EndGlobalSection
+EndGlobal
