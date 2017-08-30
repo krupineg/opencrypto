@@ -17,29 +17,15 @@ namespace md5.Tests
             var bits = new Bits(concat);
             var reverse = new WordsReverseTransform().Execute(bits);
             Assert.AreEqual(reverse.Read(0, 32), word2);
-            Assert.AreEqual(reverse.Read(32, 64), word1);
-
+            Assert.AreEqual(reverse.Read(32, 32), word1);
         }
 
-        [Test]
-        
+        [TestCase(ExpectedException = typeof(ArgumentException))]
         public void IncompatibleSizeShouldOccurException()
         {
-            try
-            {
-                var data = Enumerable.Repeat(true, 33).ToArray();
-                var bits = new Bits(data);
-                new WordsReverseTransform().Execute(bits);
-                Assert.Fail();
-            }
-            catch (ArgumentException)
-            {
-                Assert.Pass();
-            }
-            catch (Exception)
-            {
-                Assert.Fail();
-            }
+            var data = Enumerable.Repeat(true, 33).ToArray();
+            var bits = new Bits(data);
+            new WordsReverseTransform().Execute(bits);
         }
     }
 }

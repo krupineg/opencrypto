@@ -10,14 +10,14 @@ namespace md5csharp
             {
                 throw new ArgumentException("Input length should be multiple of 32 [size of word]");
             }
+
             var wordsCount = input.Size/32;
             var words = new bool[wordsCount][];
 
             for (int i = 0; i < wordsCount; i++)
             {
                 var start = i*32;
-                var end = start + 32;
-                words[i] = input.Read(start, end);
+                words[i] = input.Read(start, 32);
             }
 
             Array.Reverse(words);
