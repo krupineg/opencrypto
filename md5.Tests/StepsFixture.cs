@@ -10,6 +10,7 @@ namespace md5.Tests
         [TestCase("257")]
         [TestCase("4294967295")]
         [TestCase("4294967296")]
+        [TestCase("foo", ExpectedException = typeof(ArgumentException))]
         public void Step12(string str)
         {
             var bits = ParseString(str);
