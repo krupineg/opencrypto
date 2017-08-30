@@ -10,34 +10,34 @@ namespace md5csharp
     {
         public Buffer()
         {
-            A = BitOperations.ByteToBits(0x67)
+            A = new Bits(BitOperations.ByteToBits(0x67)
                 .Concat(BitOperations.ByteToBits(0x45))
                 .Concat(BitOperations.ByteToBits(0x23))
                 .Concat(BitOperations.ByteToBits(0x01))
-                .ToArray();
+                .ToArray());
             
-            B = BitOperations.ByteToBits(0xEF)
+            B = new Bits(BitOperations.ByteToBits(0xEF)
                 .Concat(BitOperations.ByteToBits(0xCD))
                 .Concat(BitOperations.ByteToBits(0xAB))
                 .Concat(BitOperations.ByteToBits(0x89))
-                .ToArray();
+                .ToArray());
 
-            C = BitOperations.ByteToBits(0x98)
+            C = new Bits(BitOperations.ByteToBits(0x98)
                 .Concat(BitOperations.ByteToBits(0xBA))
                 .Concat(BitOperations.ByteToBits(0xDC))
                 .Concat(BitOperations.ByteToBits(0xFE))
-                .ToArray();
+                .ToArray());
 
-            D = BitOperations.ByteToBits(0x10)
+            D = new Bits(BitOperations.ByteToBits(0x10)
                 .Concat(BitOperations.ByteToBits(0x32))
                 .Concat(BitOperations.ByteToBits(0x54))
                 .Concat(BitOperations.ByteToBits(0x76))
-                .ToArray();
+                .ToArray());
         }
 
-        public bool[] A { get; private set; }
-        public bool[] B { get; private set; }
-        public bool[] C { get; private set; }
-        public bool[] D { get; private set; }
+        public Bits A { get; private set; }
+        public Bits B { get; private set; }
+        public Bits C { get; private set; }
+        public Bits D { get; private set; }
     }
 }
