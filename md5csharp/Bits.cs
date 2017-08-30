@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -39,6 +40,11 @@ namespace md5csharp
             _bits = bits;
         }
 
+        public Bits(IEnumerable<bool> bits)
+        {
+            _bits = bits.ToArray();
+        }
+
         public long Size { get { return checked(_bits.LongLength); } }
 
         public Bits Insert(long index, Bits bits)
@@ -63,12 +69,16 @@ namespace md5csharp
             return sb.ToString();
         }
 
-        public bool[] Read(int start, int end)
+        public bool[] Read(long start, long size)
         {
-            var size = end - start;
             var word = new bool[size];
             Array.Copy(_bits, start, word, 0, size);
             return word;
+        }
+
+        public static Bits operator + (Bits left, Bits right)
+        {
+            return new Bits(BitOperations.Sum(left._bits, right._bits));
         }
     }
 }
