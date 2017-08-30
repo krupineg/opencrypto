@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace md5csharp
 {
@@ -58,6 +59,42 @@ namespace md5csharp
             return result;
         }
 
-        
+        public static bool[] Sum(bool[] left, bool[] right)
+        {
+            bool[] result = new bool[64];
+            left = ResizeIn64Bit(left);
+            right = ResizeIn64Bit(right);
+            bool next = false;
+            for (int i = 63; i >= 0; i--)
+            {
+                result[i] = AddBits(left[i], right[i], next, out next);
+            }
+            return result;
+        }
+
+        public static bool AddBits(bool left, bool right, bool previous, out bool toNext)
+        {
+            var trues = new[] {left, right, previous}.Where(x => x).Count();
+            toNext = trues >= 2;
+            return trues == 1 || trues == 3;
+
+            //toNext = left && right || right && previous || left && previous;
+            //return 
+            //    left && right && previous || 
+            //    left && !right && !previous ||
+            //    !left && !right && previous ||
+            //    !left && right && !previous;
+        }
+
+        private static bool[] ResizeIn64Bit(bool[] input)
+        {
+            if (input.Length == 64)
+            {
+                return input;
+            }
+            var input64 = new bool[64];
+            Array.Copy(input, 0, input64, 64 - input.Length, input.Length);
+            return input64;
+        }
     }
 }

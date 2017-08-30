@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using md5csharp;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 
 namespace md5.Tests
 {
@@ -120,6 +121,31 @@ namespace md5.Tests
             var appendix = Enumerable.Repeat(true, rightSize).ToArray();
             var result = BitOperations.Insert(longBits, index, appendix);
             Assert.AreEqual(result.Length, rightSize + leftSize);
+        }
+
+        [TestCase(true, true, true, true, true)]
+        [TestCase(true, true, false, true, false)]
+        [TestCase(true, false, true, true, false)]
+        [TestCase(false, true, true, true, false)]
+        [TestCase(true, false, false, false, true)]
+        [TestCase(false, true, false, false, true)]
+        [TestCase(false, false, true, false, true)]
+        [TestCase(false, false, false, false, false)]
+        public void BitAdd(bool left, bool right, bool previous, bool overflow, bool result)
+        {
+            bool actualOverflow;
+            Assert.AreEqual(BitOperations.AddBits(left, right, previous, out actualOverflow), result);
+            Assert.AreEqual(actualOverflow, overflow);
+        }
+
+        [TestCase(new[] { true, true, true, true, true, true, true, true }, new[] { true, true, true, true, true, true, true, true }, new[] { true, true, true, true, true, true, true, true, false })]
+        [TestCase(new[] { true, false, true, false, true, false, true }, new[] { true, false, true, false, true, false, true }, new[] { true, false, true, false, true, false, true, false })]
+        [TestCase(new[] { true, false, false, false, false, true }, new[] { true, true, true, false, false, false }, new[] { true, false, true, true, false, false, true })]
+        [TestCase(new[] { true, true, true, true }, new[] { true, true, true, true }, new[] { true, true, true, true, false })]
+        public void Sum(bool[] a, bool[] b, bool[] result)
+        {
+            Assert.AreEqual(BitOperations.Sum(a, b), Enumerable.Repeat(false, 64 - result.Length).Concat(result));
+
         }
     }
 }
