@@ -6,4 +6,4 @@ script:
 - xbuild /p:Configuration=Debug opencrypto.sln
 - nuget install NUnit.Runners -OutputDirectory testrunner
 after_script:
-- mono ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./md5tests/bin/Debug/md5Tests.dll
+- mono ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./md5.Tests/bin/Debug/md5.Tests.dll
