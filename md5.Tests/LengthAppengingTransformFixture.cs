@@ -1,4 +1,6 @@
 using md5csharp;
+using md5csharp.Model;
+using md5csharp.Transform;
 using NUnit.Framework;
 
 namespace md5.Tests
@@ -14,7 +16,7 @@ namespace md5.Tests
         {
             
             var bits = Bits.Empty(size);
-            var transform = new LenghAppendingTransform(new TransformMock(), (ulong)bits.Size);
+            var transform = new LenghAppendingTransformDecorator(new TransformMock(), (ulong)bits.Size);
             var result = transform.Execute(bits);
             Assert.AreEqual(result.Size, bits.Size + 64);
         }
@@ -25,7 +27,7 @@ namespace md5.Tests
         public void SizeIsAppendedFor64Bits(long size)
         {
             var bits = Bits.Empty(size);
-            var transform = new LenghAppendingTransform(new TransformMock(), (ulong)bits.Size);
+            var transform = new LenghAppendingTransformDecorator(new TransformMock(), (ulong)bits.Size);
             var result = transform.Execute(bits);
             Assert.AreEqual(result.Size, bits.Size + 64);
         }

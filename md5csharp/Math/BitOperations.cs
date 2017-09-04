@@ -1,8 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
-namespace md5csharp
+namespace md5csharp.Math
 {
     public class BitOperations
     {

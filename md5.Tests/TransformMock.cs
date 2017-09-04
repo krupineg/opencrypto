@@ -1,4 +1,6 @@
 using md5csharp;
+using md5csharp.Model;
+using md5csharp.Transform;
 
 namespace md5.Tests
 {

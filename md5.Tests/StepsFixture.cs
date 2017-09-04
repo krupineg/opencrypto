@@ -1,5 +1,8 @@
 using System;
 using md5csharp;
+using md5csharp.Math;
+using md5csharp.Model;
+using md5csharp.Transform;
 using NUnit.Framework;
 
 namespace md5.Tests
@@ -19,7 +22,7 @@ namespace md5.Tests
                 new ITransform[]
                 {
                     new PaddingTransform(),
-                    new LenghAppendingTransform(new WordsReverseTransform(), (ulong)bits.Size)
+                    new LenghAppendingTransformDecorator(new WordsReverseTransform(), (ulong)bits.Size)
                 }).Execute(bits);
             Assert.AreEqual(step12.Size%512, 0);
         }

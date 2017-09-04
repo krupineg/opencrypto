@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Text;
 using System.Threading.Tasks;
+using md5csharp.Model;
+using md5csharp.Transform;
 
 namespace md5csharp
 {
@@ -15,7 +17,7 @@ namespace md5csharp
                 new ITransform[]
                 {
                     new PaddingTransform(),
-                    new LenghAppendingTransform(new WordsReverseTransform(), (ulong)bits.Size)
+                    new LenghAppendingTransformDecorator(new WordsReverseTransform(), (ulong)bits.Size),
                 });
             var chain = new TransformChain(new ITransform[]
             {

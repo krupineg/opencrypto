@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using md5csharp.Model;
 
-namespace md5csharp
+namespace md5csharp.Transform
 {
-    public class TransformChain : ITransform
+    public sealed class TransformChain : ITransform
     {
         private readonly IEnumerable<ITransform> _transforms;
 

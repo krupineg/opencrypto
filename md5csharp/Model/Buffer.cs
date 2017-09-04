@@ -1,6 +1,7 @@
 using System.Linq;
+using md5csharp.Math;
 
-namespace md5csharp
+namespace md5csharp.Model
 {
     //word A: 01 23 45 67
     //word B: 89 ab cd ef

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Linq;
 using md5csharp;
+using md5csharp.Model;
+using md5csharp.Transform;
 using NUnit.Framework;
 
 namespace md5.Tests

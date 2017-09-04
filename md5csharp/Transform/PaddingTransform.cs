@@ -1,8 +1,10 @@
 using System.Linq;
+using md5csharp.Math;
+using md5csharp.Model;
 
-namespace md5csharp
+namespace md5csharp.Transform
 {
-    public class PaddingTransform : ITransform
+    public sealed class PaddingTransform : ITransform
     {
         public const int Modulo = 512;
         public const int Congruency = 448;

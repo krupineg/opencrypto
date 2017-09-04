@@ -56,19 +56,14 @@ namespace md5csharp
     //
     //a = b + ((a + F(b,c,d) + X[k] + T[i]) <<< s). *
 
-    public class Md5
+    public class Md5Functions
     {
-        private static readonly ulong _twoIn64 = (ulong)Math.Pow(2, 64);
-        private static readonly ulong[] _t = Enumerable.Range(1, 65).Select(Sin).ToArray();
-
-        public ulong[] T
-        {
-            get { return _t; }
-        }
+        private static readonly ulong TwoIn64 = (ulong)Math.Pow(2, 64);
+        private static readonly ulong[] T = Enumerable.Range(1, 65).Select(Sin).ToArray();
         
-        public static ulong Sin(int n)
+        private static ulong Sin(int n)
         {
-            return (ulong)(_twoIn64*Math.Abs(Math.Sin(n)));
+            return (ulong)(TwoIn64*Math.Abs(Math.Sin(n)));
         }
 
         public Bits F(Bits x, Bits y, Bits z)
@@ -80,10 +75,12 @@ namespace md5csharp
         {
             return x & z | y & !z;
         }
+
         public Bits H(Bits x, Bits y, Bits z)
         {
             return x ^ y ^ z;
         }
+
         public Bits I(Bits x, Bits y, Bits z)
         {
             return y ^ (x | !z);

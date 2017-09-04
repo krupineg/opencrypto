@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using md5csharp;
+using md5csharp.Math;
+using md5csharp.Model;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
 

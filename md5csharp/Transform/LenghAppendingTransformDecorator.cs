@@ -1,11 +1,14 @@
-namespace md5csharp
+using md5csharp.Math;
+using md5csharp.Model;
+
+namespace md5csharp.Transform
 {
-    public class LenghAppendingTransform : ITransform
+    public sealed class LenghAppendingTransformDecorator : ITransform
     {
         private readonly ITransform _transform;
         private readonly ulong _size;
 
-        public LenghAppendingTransform(ITransform transform, ulong size)
+        public LenghAppendingTransformDecorator(ITransform transform, ulong size)
         {
             _transform = transform;
             _size = size;

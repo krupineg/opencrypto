@@ -1,4 +1,6 @@
-namespace md5csharp
+using md5csharp.Model;
+
+namespace md5csharp.Transform
 {
     public interface ITransform
     {

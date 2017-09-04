@@ -1,4 +1,5 @@
 using md5csharp;
+using md5csharp.Math;
 using NUnit.Framework;
 
 namespace md5.Tests

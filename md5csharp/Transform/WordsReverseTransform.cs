@@ -1,8 +1,9 @@
 using System;
+using md5csharp.Model;
 
-namespace md5csharp
+namespace md5csharp.Transform
 {
-    public class WordsReverseTransform : ITransform
+    public sealed class WordsReverseTransform : ITransform
     {
         public Bits Execute(Bits input)
         {
