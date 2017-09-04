@@ -1,5 +1,5 @@
 using System.Linq;
-using md5csharp.Math;
+using md5csharp.Mathematics;
 using md5csharp.Model;
 
 namespace md5csharp.Transform

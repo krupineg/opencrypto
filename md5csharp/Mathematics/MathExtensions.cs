@@ -1,6 +1,6 @@
 using System;
 
-namespace md5csharp
+namespace md5csharp.Mathematics
 {
     public class MathExtensions
     {

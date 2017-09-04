@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace md5csharp.Math
+namespace md5csharp.Mathematics
 {
     public class BitOperations
     {

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using md5csharp.Mathematics;
 
-namespace md5csharp
+namespace md5csharp.Model
 {
     public class Bits : IEquatable<Bits>
     {
@@ -67,6 +68,11 @@ namespace md5csharp
                 sb.Append(bit ? 1 : 0);
             }
             return sb.ToString();
+        }
+
+        public override int GetHashCode()
+        {
+            return _bits.GetHashCode() ^ 387;
         }
 
         public bool[] Read(long start, long size)

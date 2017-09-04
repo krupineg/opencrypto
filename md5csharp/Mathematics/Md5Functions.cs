@@ -1,7 +1,7 @@
-using System;
 using System.Linq;
+using md5csharp.Model;
 
-namespace md5csharp
+namespace md5csharp.Mathematics
 {
     //F(X,Y,Z) = XY v not(X) Z
     //G(X,Y,Z) = XZ v Y not(Z)
@@ -58,12 +58,12 @@ namespace md5csharp
 
     public class Md5Functions
     {
-        private static readonly ulong TwoIn64 = (ulong)Math.Pow(2, 64);
+        private static readonly ulong TwoIn64 = (ulong)System.Math.Pow(2, 64);
         private static readonly ulong[] T = Enumerable.Range(1, 65).Select(Sin).ToArray();
         
         private static ulong Sin(int n)
         {
-            return (ulong)(TwoIn64*Math.Abs(Math.Sin(n)));
+            return (ulong)(TwoIn64 * System.Math.Abs(System.Math.Sin(n)));
         }
 
         public Bits F(Bits x, Bits y, Bits z)

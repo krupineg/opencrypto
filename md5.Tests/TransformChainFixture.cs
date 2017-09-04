@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using md5csharp;
+using md5csharp.Model;
+using md5csharp.Transform;
 using NUnit.Framework;
 
 namespace md5.Tests

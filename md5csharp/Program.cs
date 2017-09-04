@@ -19,11 +19,11 @@ namespace md5csharp
                     new PaddingTransform(),
                     new LenghAppendingTransformDecorator(new WordsReverseTransform(), (ulong)bits.Size),
                 });
-            var chain = new TransformChain(new ITransform[]
+            var step24 = new TransformChain(new ITransform[]
             {
                 step12
             });
-            bits = chain.Execute(bits);
+            bits = step24.Execute(bits);
         }
     }
 }

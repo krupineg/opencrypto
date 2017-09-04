@@ -1,6 +1,6 @@
 using System;
 using md5csharp;
-using md5csharp.Math;
+using md5csharp.Mathematics;
 using md5csharp.Model;
 using md5csharp.Transform;
 using NUnit.Framework;
