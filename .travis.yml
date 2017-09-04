@@ -1,9 +1,9 @@
 ﻿language: csharp
+install:
+- nuget restore opencrypto.sln
+- nuget install NUnit.Runners -OutputDirectory testrunner
 script:
 - xbuild /p:Configuration=Debug opencrypto.sln
-before_install:
-- sudo apt-get install nunit-console
-before_script:
-- nuget restore opencrypto.sln
+- nuget install NUnit.Runners -OutputDirectory testrunner
 after_script:
-- nunit-console *.Tests/bin/Debug/Tests.dll
+- mono ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./md5tests/bin/Debug/md5Tests.dll
