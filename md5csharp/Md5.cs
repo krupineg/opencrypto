@@ -71,20 +71,20 @@ namespace md5csharp
             return (ulong)(_twoIn64*Math.Abs(Math.Sin(n)));
         }
 
-        public bool F(bool x, bool y, bool z)
+        public Bits F(Bits x, Bits y, Bits z)
         {
             return x & y | !x & z;
         }
 
-        public bool G(bool x, bool y, bool z)
+        public Bits G(Bits x, Bits y, Bits z)
         {
             return x & z | y & !z;
         }
-        public bool H(bool x, bool y, bool z)
+        public Bits H(Bits x, Bits y, Bits z)
         {
             return x ^ y ^ z;
         }
-        public bool I(bool x, bool y, bool z)
+        public Bits I(Bits x, Bits y, Bits z)
         {
             return y ^ (x | !z);
         }

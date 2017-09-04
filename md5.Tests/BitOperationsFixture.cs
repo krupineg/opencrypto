@@ -147,5 +147,12 @@ namespace md5.Tests
             Assert.AreEqual(BitOperations.Sum(a, b), Enumerable.Repeat(false, 64 - result.Length).Concat(result));
 
         }
+
+        [Test]
+        public void SumOf64Bits()
+        {
+            Assert.AreEqual(BitOperations.Sum(Enumerable.Repeat(false, 64).ToArray(), Enumerable.Repeat(true, 64).ToArray()), Enumerable.Repeat(true, 64));
+            Assert.AreEqual(BitOperations.Sum(Enumerable.Repeat(true, 64).ToArray(), Enumerable.Repeat(true, 64).ToArray()), Enumerable.Repeat(true, 63).Concat(Enumerable.Repeat(false, 1)));
+        }
     }
 }

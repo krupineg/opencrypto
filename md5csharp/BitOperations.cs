@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace md5csharp
@@ -96,5 +97,30 @@ namespace md5csharp
             Array.Copy(input, 0, input64, 64 - input.Length, input.Length);
             return input64;
         }
+
+        public static bool[] Not(bool[] input)
+        {
+            var output = new bool[input.Length];
+            for (var i = 0; i < input.Length; i++)
+            {
+                output[i] = !input[i];
+            }
+            return output;
+        }
+
+        public static bool[] Apply(Func<bool, bool, bool> functor, bool[] input1, bool[] input2)
+        {
+            if (input1.Length != input2.Length)
+            {
+                throw new ArgumentException("inputs length should be the same");
+            }
+            var output = new bool[input1.Length];
+            for (var i = 0; i < input1.Length; i++)
+            {
+                output[i] = functor(input1[i], input2[i]);
+            }
+            return output;
+        }
+
     }
 }

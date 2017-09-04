@@ -80,5 +80,26 @@ namespace md5csharp
         {
             return new Bits(BitOperations.Sum(left._bits, right._bits));
         }
+
+        public static Bits operator &(Bits left, Bits right)
+        {
+            return new Bits(BitOperations.Apply((l, r) => l & r, left._bits, right._bits));
+        }
+
+        public static Bits operator |(Bits left, Bits right)
+        {
+            return new Bits(BitOperations.Apply((l, r) => l | r, left._bits, right._bits));
+        }
+
+        public static Bits operator ^(Bits left, Bits right)
+        {
+            return new Bits(BitOperations.Apply((l, r) => l ^ r, left._bits, right._bits));
+        }
+        
+        public static Bits operator !(Bits x)
+        {
+            return new Bits(BitOperations.Not(x._bits));
+        }
+
     }
 }

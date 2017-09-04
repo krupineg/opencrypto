@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BitOperationsFixture.cs" />
+    <Compile Include="BitsFixture.cs" />
     <Compile Include="BufferFixture.cs" />
     <Compile Include="LengthAppengingTransformFixture.cs" />
     <Compile Include="MathExtensionsFixture.cs" />
